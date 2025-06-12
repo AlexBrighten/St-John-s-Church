@@ -149,7 +149,19 @@ export interface Page {
   id: string;
   title: string;
   hero: {
-    type: 'none' | 'highImpact' | 'mediumImpact' | 'lowImpact';
+    type: 'none' | 'highImpact' | 'mediumImpact' | 'lowImpact' | 'mainhero';
+    /**
+     * Displayed as the <h1> in the hero
+     */
+    heading: string;
+    /**
+     * Displayed as the <h2> in the hero
+     */
+    subheading?: string | null;
+    /**
+     * Displayed as the <h2> in the hero
+     */
+    para?: string | null;
     richText?: {
       root: {
         type: string;
@@ -992,6 +1004,9 @@ export interface PagesSelect<T extends boolean = true> {
     | T
     | {
         type?: T;
+        heading?: T;
+        subheading?: T;
+        para?: T;
         richText?: T;
         links?:
           | T

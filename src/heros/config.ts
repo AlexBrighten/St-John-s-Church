@@ -16,7 +16,7 @@ export const hero: Field = {
     {
       name: 'type',
       type: 'select',
-      defaultValue: 'lowImpact',
+      defaultValue: 'mainhero',
       label: 'Type',
       options: [
         {
@@ -35,9 +35,40 @@ export const hero: Field = {
           label: 'Low Impact',
           value: 'lowImpact',
         },
+        {
+          label: 'Main Hero',
+          value: 'mainhero',
+        },
       ],
       required: true,
     },
+
+    {
+      name: 'heading',
+      label: 'Main Heading',
+      type: 'text',
+      required: true,
+      admin: {
+        description: 'Displayed as the <h1> in the hero',
+      },
+    },
+    {
+      name: 'subheading',
+      label: 'Subheading',
+      type: 'text',
+      admin: {
+        description: 'Displayed as the <h2> in the hero',
+      },
+    },
+    {
+      name: 'para',
+      label: 'Paragraph',
+      type: 'text',
+      admin: {
+        description: 'Displayed as the <h2> in the hero',
+      },
+    },
+
     {
       name: 'richText',
       type: 'richText',
@@ -62,7 +93,7 @@ export const hero: Field = {
       name: 'media',
       type: 'upload',
       admin: {
-        condition: (_, { type } = {}) => ['highImpact', 'mediumImpact'].includes(type),
+        condition: (_, { type } = {}) => ['highImpact', 'mediumImpact', 'mainhero'].includes(type),
       },
       relationTo: 'media',
       required: true,
