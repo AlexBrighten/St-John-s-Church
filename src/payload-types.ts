@@ -149,19 +149,22 @@ export interface Page {
   id: string;
   title: string;
   hero: {
-    type: 'none' | 'highImpact' | 'mediumImpact' | 'lowImpact' | 'mainhero';
+    type: 'none' | 'mainhero' | 'highImpact' | 'mediumImpact' | 'lowImpact';
     /**
      * Displayed as the <h1> in the hero
      */
-    heading: string;
+    heading?: string | null;
     /**
-     * Displayed as the <h2> in the hero
+     * Displayed as the <h1> in the hero
      */
     subheading?: string | null;
     /**
-     * Displayed as the <h2> in the hero
+     * Displayed as the <h1> in the hero
      */
     para?: string | null;
+    /**
+     * Displayed as the <h1> in the hero
+     */
     richText?: {
       root: {
         type: string;

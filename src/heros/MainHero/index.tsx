@@ -5,9 +5,7 @@ import React, { useEffect } from 'react'
 
 import type { Page } from '@/payload-types'
 
-import { CMSLink } from '@/components/Link'
 import { Media } from '@/components/Media'
-import RichText from '@/components/RichText'
 
 export const MainHero: React.FC<Page['hero']> = ({ heading, subheading, media, para }) => {
   const { setHeaderTheme } = useHeaderTheme()

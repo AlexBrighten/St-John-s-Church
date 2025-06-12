@@ -24,6 +24,10 @@ export const hero: Field = {
           value: 'none',
         },
         {
+          label: 'Main Hero',
+          value: 'mainhero',
+        },
+        {
           label: 'High Impact',
           value: 'highImpact',
         },
@@ -34,10 +38,6 @@ export const hero: Field = {
         {
           label: 'Low Impact',
           value: 'lowImpact',
-        },
-        {
-          label: 'Main Hero',
-          value: 'mainhero',
         },
       ],
       required: true,
@@ -50,6 +50,8 @@ export const hero: Field = {
       required: true,
       admin: {
         description: 'Displayed as the <h1> in the hero',
+        condition: (_: unknown, siblingData: { type?: string }) =>
+          siblingData?.type === 'mainhero' || siblingData?.type === 'highImpact',
       },
     },
     {
@@ -57,7 +59,9 @@ export const hero: Field = {
       label: 'Subheading',
       type: 'text',
       admin: {
-        description: 'Displayed as the <h2> in the hero',
+        description: 'Displayed as the <h1> in the hero',
+        condition: (_: unknown, siblingData: { type?: string }) =>
+          siblingData?.type === 'mainhero' || siblingData?.type === 'highImpact',
       },
     },
     {
@@ -65,7 +69,9 @@ export const hero: Field = {
       label: 'Paragraph',
       type: 'text',
       admin: {
-        description: 'Displayed as the <h2> in the hero',
+        description: 'Displayed as the <h1> in the hero',
+        condition: (_: unknown, siblingData: { type?: string }) =>
+          siblingData?.type === 'mainhero' || siblingData?.type === 'highImpact',
       },
     },
 
@@ -83,6 +89,11 @@ export const hero: Field = {
         },
       }),
       label: false,
+      admin: {
+        description: 'Displayed as the <h1> in the hero',
+        condition: (_: unknown, siblingData: { type?: string }) =>
+          siblingData?.type === 'highImpact',
+      },
     },
     linkGroup({
       overrides: {
